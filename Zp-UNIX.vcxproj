@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9E2D9330-7EA5-43D9-A769-DF7A6C1FE878}</ProjectGuid>
+    <RootNamespace>ZapoctakCPlusPlus</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Zp-UNIX</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>lib\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsManaged>false</CompileAsManaged>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>lib\openssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Bubyx\Documents\Programing\Visual Studio 2015\Projects\ZapoctakCPlusPlus\ZapoctakCPlusPlus\lib\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>"C:\Users\Bubyx\Documents\Programing\Visual Studio 2015\Projects\ZapoctakCPlusPlus\ZapoctakCPlusPlus\lib\openssl\lib";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AddFileMode.h" />
+    <ClInclude Include="AddressInfoWrapper.h" />
+    <ClInclude Include="base.h" />
+    <ClInclude Include="ChangeLogger.h" />
+    <ClInclude Include="CheckoutMode.h" />
+    <ClInclude Include="ChunkType.h" />
+    <ClInclude Include="ClientMode.h" />
+    <ClInclude Include="CommitMode.h" />
+    <ClInclude Include="Connection.h" />
+    <ClInclude Include="ConnectionWrapper.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileInfo.h" />
+    <ClInclude Include="FileStream.h" />
+    <ClInclude Include="IOException.h" />
+    <ClInclude Include="path.h" />
+    <ClInclude Include="FilesStructure.h" />
+    <ClInclude Include="FileStructure.h" />
+    <ClInclude Include="ILogger.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="Mode.h" />
+    <ClInclude Include="ModeBuilder.h" />
+    <ClInclude Include="RunParamException.h" />
+    <ClInclude Include="ServerAdress.h" />
+    <ClInclude Include="ServerMode.h" />
+    <ClInclude Include="StreamWrapper.h" />
+    <ClInclude Include="TemporarySubsequenceData.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="Testing.h" />
+    <ClInclude Include="UNIXAPI.h" />
+    <ClInclude Include="UNIXDirectoryInfo.h" />
+    <ClInclude Include="UNIXFileInfo.h" />
+    <ClInclude Include="UNIXFileSystem.h" />
+    <ClInclude Include="UNIXWrapper.h" />
+    <ClInclude Include="UpdateMode.h" />
+    <ClInclude Include="VersionChange.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddFileMode.cpp" />
+    <ClCompile Include="AddressInfoWrapper.cpp" />
+    <ClCompile Include="CheckouMode.cpp" />
+    <ClCompile Include="ChunkType.cpp" />
+    <ClCompile Include="ClientMode.cpp" />
+    <ClCompile Include="CommitMode.cpp" />
+    <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="ConnectionWrapper.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileInfo.cpp" />
+    <ClCompile Include="FileStream.cpp" />
+    <ClCompile Include="IOException.cpp" />
+    <ClCompile Include="path.cpp" />
+    <ClCompile Include="FilesStructure.cpp" />
+    <ClCompile Include="MainProgram.cpp" />
+    <ClCompile Include="ModeBuilder.cpp" />
+    <ClCompile Include="RunParamException.cpp" />
+    <ClCompile Include="ServerAdress.cpp" />
+    <ClCompile Include="ServerMode.cpp" />
+    <ClCompile Include="StreamWrapper.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="UNIXDirectoryInfo.cpp" />
+    <ClCompile Include="UNIXFileInfo.cpp" />
+    <ClCompile Include="UNIXFileSystem.cpp" />
+    <ClCompile Include="UpdateMode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Zp-UNIX.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

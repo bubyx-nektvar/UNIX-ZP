@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Differer">
+      <UniqueIdentifier>{71028c46-b8b8-44cb-b8be-f558bc5e540a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Structures">
+      <UniqueIdentifier>{381d6e3e-8169-4001-82d0-5836825fb1fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Differer\Base">
+      <UniqueIdentifier>{956ed090-145b-4ca3-b9d4-f64b948f721d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Structures\FS">
+      <UniqueIdentifier>{10e7fc95-f7a5-4fe4-a10e-647e02968c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modes">
+      <UniqueIdentifier>{f2f526c2-ea18-415c-a2f3-295e2e8e4c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UNIX">
+      <UniqueIdentifier>{241c738d-aa35-4d54-b7b2-42633b739aa1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileStructure.h">
+      <Filter>Header Files\Differer</Filter>
+    </ClInclude>
+    <ClInclude Include="base.h">
+      <Filter>Header Files\Differer\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TemporarySubsequenceData.h">
+      <Filter>Header Files\Differer\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeLogger.h">
+      <Filter>Header Files\Differer</Filter>
+    </ClInclude>
+    <ClInclude Include="File.h">
+      <Filter>Header Files\Structures\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="Messages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VersionChange.h">
+      <Filter>Header Files\Differer\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkType.h">
+      <Filter>Header Files\Differer\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogger.h">
+      <Filter>Header Files\Differer</Filter>
+    </ClInclude>
+    <ClInclude Include="Mode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="AddFileMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="CommitMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="RunParamException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeBuilder.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerAdress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckoutMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateMode.h">
+      <Filter>Header Files\Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIXAPI.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIXDirectoryInfo.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIXFileInfo.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIXFileSystem.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionWrapper.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressInfoWrapper.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIXWrapper.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamWrapper.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileInfo.h">
+      <Filter>Header Files\Structures\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesStructure.h">
+      <Filter>Header Files\Structures\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStream.h">
+      <Filter>Header Files\UNIX</Filter>
+    </ClInclude>
+    <ClInclude Include="IOException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddFileMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommitMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModeBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RunParamException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerAdress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckouMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesStructure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIXDirectoryInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIXFileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIXFileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddressInfoWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Zp-UNIX.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

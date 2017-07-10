@@ -1,0 +1,44 @@
+checkoutroot/
+		
+	F1/
+		txt1.txt
+	F2/
+		/F3
+			txt5.txt
+		txt2.txt
+		txt3.txt
+	txt4.txt
+	.svn/
+		F1/
+			txt1.txt.revision
+		F2/
+			F3/
+				txt5.txt.revision
+			txt2.txt.revision
+			txt3.txt.revision
+		txt4.txt.revision
+
+localhost:1234/
+--ADDFILE
+1. vytvori prazdny soubor se stejnou cestou (resp. jmenem) v .svn s revision = -1
+--COMMIT
+1. rozdeli soubor mezi promeny pocet threadu, 1 thread nacita soubory do pameti, 1 rozdeluje praci
+2. vytvoøi se zprava pro server
+3. navaze spojeni se serverem
+4. odesle
+5. server vrátí èíslo revize v niž jsou zmìny, nebo -1
+--UPDATE
+1. navaze spojeni se serverem
+2. precte zmeny
+3. nacte soubory do pamìti
+4. ulozi zmìnìné soubory
+--CHECKOUT
+1. pripoji se k serveru
+2. pøijme obsah všech souboru s jejich verzemi
+3. vytvoøí v lokální složce .svn
+4. vytvoøí v lokaální složce soubory
+--SERVER
+1. pøijímá spojení na uvedenem portu
+2. pøi navázání spojení vybere repozitáø
+3. spustí nový thread pro repozitáø
+--thread pro repo
