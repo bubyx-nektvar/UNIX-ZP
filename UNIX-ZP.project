@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="UNIX-ZP" InternalType="Console">
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <VirtualDirectory Name="core">
+      <File Name="src/core/Connection.cpp"/>
+      <File Name="src/core/RunParamException.cpp"/>
+      <File Name="src/core/base.h"/>
+      <File Name="src/core/ServerAdress.h"/>
+      <File Name="src/core/Connection.h"/>
+      <File Name="src/core/RunParamException.h"/>
+      <File Name="src/core/ServerAdress.cpp"/>
+      <File Name="src/core/main.cpp"/>
+      <File Name="src/core/Messages.h"/>
+      <File Name="src/core/resource.h"/>
+      <VirtualDirectory Name="diff">
+        <File Name="src/core/diff/ChunkType.cpp"/>
+        <File Name="src/core/diff/VersionChange.cpp"/>
+        <File Name="src/core/diff/ChunkType.h"/>
+        <File Name="src/core/diff/BinaryDifferer.h"/>
+        <File Name="src/core/diff/TemporarySubsequenceData.h"/>
+        <File Name="src/core/diff/ChangeLogger.cpp"/>
+        <File Name="src/core/diff/VersionChange.h"/>
+        <File Name="src/core/diff/ILogger.h"/>
+        <File Name="src/core/diff/Line.h"/>
+        <File Name="src/core/diff/ChangeLogger.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="fileStructure">
+        <File Name="src/core/fileStructure/FileInfo.cpp"/>
+        <File Name="src/core/fileStructure/File.h"/>
+        <File Name="src/core/fileStructure/File.cpp"/>
+        <File Name="src/core/fileStructure/FilesStructure.h"/>
+        <File Name="src/core/fileStructure/FileInfo.h"/>
+        <File Name="src/core/fileStructure/PathContext.h"/>
+        <File Name="src/core/fileStructure/FileStructure.h"/>
+        <File Name="src/core/fileStructure/FilesStructure.cpp"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="mode">
+        <File Name="src/core/mode/AddFileMode.h"/>
+        <File Name="src/core/mode/UpdateMode.h"/>
+        <File Name="src/core/mode/ClientMode.h"/>
+        <File Name="src/core/mode/ServerMode.h"/>
+        <File Name="src/core/mode/ClientMode.cpp"/>
+        <File Name="src/core/mode/ModeBuilder.cpp"/>
+        <File Name="src/core/mode/ModeBuilder.h"/>
+        <File Name="src/core/mode/CheckoutMode.cpp"/>
+        <File Name="src/core/mode/UpdateMode.cpp"/>
+        <File Name="src/core/mode/ServerMode.cpp"/>
+        <File Name="src/core/mode/CommitMode.h"/>
+        <File Name="src/core/mode/CommitMode.cpp"/>
+        <File Name="src/core/mode/CheckoutMode.h"/>
+        <File Name="src/core/mode/AddFileMode.cpp"/>
+        <File Name="src/core/mode/Mode.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="tests">
+      <File Name="src/tests/Test.cpp"/>
+      <File Name="src/tests/Testing.h"/>
+      <File Name="src/tests/Test.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="unix">
+      <File Name="src/unix/UNIXAPI.h"/>
+      <VirtualDirectory Name="io">
+        <File Name="src/unix/io/path.cpp"/>
+        <File Name="src/unix/io/FileStream.h"/>
+        <File Name="src/unix/io/IOException.h"/>
+        <File Name="src/unix/io/DirectoryInfo.h"/>
+        <File Name="src/unix/io/AddressInfoWrapper.h"/>
+        <File Name="src/unix/io/ConnectionWrapper.cpp"/>
+        <File Name="src/unix/io/IOException.cpp"/>
+        <File Name="src/unix/io/StreamWrapper.h"/>
+        <File Name="src/unix/io/path.h"/>
+        <File Name="src/unix/io/DirectoryInfo.cpp"/>
+        <File Name="src/unix/io/StreamWrapper.cpp"/>
+        <File Name="src/unix/io/ConnectionWrapper.h"/>
+        <File Name="src/unix/io/AddressInfoWrapper.cpp"/>
+        <File Name="src/unix/io/FileStream.cpp"/>
+        <File Name="src/unix/io/FileInfo.cpp"/>
+        <File Name="src/unix/io/FileInfo.h"/>
+        <File Name="src/unix/io/FileSystem.h"/>
+        <File Name="src/unix/io/FileSystem.cpp"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-std=c++14;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <IncludePath Value="src"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>
