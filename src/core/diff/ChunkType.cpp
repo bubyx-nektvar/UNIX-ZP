@@ -9,9 +9,7 @@ unix::FileStream Text::openFile(std::string file_path,unix::OpenMode mode)
 
 Text Text::readChunk(unix::FileStream & s)
 {
-	std::string line;
-	std::getline(s, line);
-	return Text(line);
+	return Text(s.getline());
 }
 
 Text Text::parseChunk(std::string & s)
@@ -22,7 +20,7 @@ Text Text::parseChunk(std::string & s)
 void Text::Write(unix::FileStream & output,bool isLast) const
 {
 	if (isLast) output << line;
-	else output << line <<std::endl;
+	else output << line << '\n';
 }
 
 std::string Text::ToString() const

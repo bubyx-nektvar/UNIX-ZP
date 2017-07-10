@@ -1,35 +1,18 @@
 #include "File.h"
-#include "Settings.h"
-extern shared_ptr<Settings> setting;
+
 #include <sstream>
 #include <iomanip>
-void myfs::File::Check(PathContext & paths) {
-#ifdef DEBUG
-	std::cout << ">>Checking file:" << paths.pathFromRoot << file_name;
-#endif // DEBUG
 
-	path used_pathToRoot;
-	if (check_files_change(paths,used_pathToRoot)) {
-		Rewrite(used_pathToRoot, paths);
-	}
-#ifdef  DEBUG
-	std::cout << "....done" << endl;
-#endif //  DEBUG
-
+void myfs::File::RewriteSVNFile(const PathContext& paths){
+    WriteChunks(paths.pathToPrevRevisionFile);
 }
-
-
-void myfs::File::Rewrite(path & used_pathToRoot,const PathContext& paths, bool rewriteAll)
+void myfs::File::RewriteCurrentFile(const PathContext& paths){
+    WriteChunks(paths.pathToCurrentModifiedFile);
+}
+void myfs::File::RewriteAll(const PathContext& paths)
 {
-	if (rewriteAll||(used_pathToRoot!=paths.pathToRoot)) {
-		WriteChunks(paths.pathToRoot / paths.pathFromRoot /path( file_name));
-	}
-	for (auto it = paths.targetDirs->begin(); it != paths.targetDirs->end(); ++it) {
-		if (rewriteAll||(*it != used_pathToRoot)) {
-			
-			WriteChunks((*it) / paths.pathFromRoot / path(file_name));
-		}
-	}
+    RewriteSVNFile(paths);
+    RewriteCurrentFile(paths);
 }
 
 void myfs::File::AddToTargetClearly(path toTarget,path fromRoot)

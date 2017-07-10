@@ -7,7 +7,8 @@
 
 #include <exception>
 
-template<typename T> class AssertFailException
+template<typename T>
+class AssertFailException
 	:std::exception{
 private:
 	T expected;
@@ -20,8 +21,9 @@ public:
 };
 
 namespace Assert {
-	template<typename T> void equals(T expected, T found) {
-		if (expected != found)throw new AssertFailException(expected, found);
+	template<typename T> 
+    void equals(T expected, T found) {
+		if (expected != found)throw AssertFailException<T>(expected, found);
 	}
 
 };
@@ -29,4 +31,3 @@ namespace Assert {
 #endif // TEST
 
 #endif // !TESTING_H_
-|

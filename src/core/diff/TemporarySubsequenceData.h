@@ -2,7 +2,7 @@
 #define TEMPORARY_SUBSEQUENCE_DATA_H_
 
 class TemporarySubsequenceData;
-#include "base.h"
+#include "core/base.h"
 
 class TemporarySubsequenceData
 {

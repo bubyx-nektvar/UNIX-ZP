@@ -2,8 +2,8 @@
 #define CHUNK_TYPE_H_
 #include <iostream>
 #include <string>
-#include "FileStream.h"
 #include <memory>
+#include "unix/io/FileStream.h"
 
 class Text{
 public:

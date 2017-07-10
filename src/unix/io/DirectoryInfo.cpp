@@ -1,8 +1,8 @@
-#include "UNIXDirectoryInfo.h"
-#include "UNIXAPI.h"
+#include "DirectoryInfo.h"
 
-
-
+unix::DirectoryInfo::iterator::iterator(DIR* d)
+    :dirp(d),fi(std::string())
+{}
 
 unix::DirectoryInfo::iterator unix::DirectoryInfo::begin() const
 {
@@ -42,4 +42,19 @@ std::iterator<std::forward_iterator_tag, unix::FileInfo, int, const unix::FileIn
 std::iterator<std::forward_iterator_tag, unix::FileInfo, int, const unix::FileInfo*, unix::FileInfo>::pointer unix::DirectoryInfo::iterator::operator->() const
 {
 	return &fi;
+}
+unix::DirectoryInfo::DirectoryInfo(path p )
+    :FileInfo(p)
+{}
+unix::DirectoryInfo::DirectoryInfo(std::string fullPath)
+    :FileInfo(fullPath) 
+{}
+bool unix::DirectoryInfo::isRoot() const
+{
+    return this->fullPath.isRoot();
+}
+unix::FileInfo unix::DirectoryInfo::GetChild( std::string name) const
+{
+    auto path = this->fullPath / name;
+    return FileInfo(path);
 }

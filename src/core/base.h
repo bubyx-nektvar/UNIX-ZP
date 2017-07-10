@@ -12,7 +12,7 @@ typedef std::string Hash;
 
 template<typename T>
 T fromString(std::string input) {
-	stringstream s(input);
+	std::stringstream s(input);
 	T x;
 	s >> x;
 	return x;

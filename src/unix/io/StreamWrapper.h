@@ -26,6 +26,7 @@ public:
 		this->buff = std::make_unique<char[]>(buffMaxLength);
 		readSysToBuff();
 	}
+    void close();
 	~StreamWrapper();
 	int wread(char * buff, int startPos, size_t maxLength);
 	std::string readChunk();

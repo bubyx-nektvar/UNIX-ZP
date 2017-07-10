@@ -5,14 +5,17 @@
 #include <list>
 #include <algorithm>
 #include <memory>
-#include "ChunkType.h"
+#include "core/diff/ChunkType.h"
+
 template<typename T> class FileStructure;
+
 #include "File.h"
-#include "base.h"
-#include "ILogger.h"
-#include "ChangeLogger.h"
-#include "VersionChange.h"
-#include "TemporarySubsequenceData.h"
+#include "core/base.h"
+#include "core/diff/ILogger.h"
+#include "core/diff/ChangeLogger.h"
+#include "core/diff/VersionChange.h"
+#include "core/diff/TemporarySubsequenceData.h"
+
 using namespace std;
 typedef unique_ptr<vector<TemporarySubsequenceData>> temporary_data_unique_ptr;
 typedef vector<TemporarySubsequenceData> temporary_data;
@@ -62,9 +65,9 @@ public:
 		logger.LogAdd(chunk, index);
 	}
 	//nascte strukturu z log fileu
-	virtual void Load(path originalRoot,vector<path>& targets,path pathFromRoot, Version v) override{
-		std::cout << ">>Loading " << pathFromRoot / file_name;
-		auto ch = readFileChunks(originalRoot / pathFromRoot / path(file_name));
+	virtual void LoadFromLog(path logFile,Version v) override{
+		std::cout << ">>Loading " << logFile;
+		auto ch = readFileChunks(logFile);
 		for (auto it = ch->begin(); it != ch->end(); ++it) {
 			chunks.push_back(*it);
 		}
@@ -92,11 +95,7 @@ public:
 		}
 
 	}
-	virtual void Init(path pathToOriginFile,path fromRoot, vector<path>* targets) override{
-		for (auto it = targets->begin(); it != targets->end(); ++it)
-		{
-			fs::copy_file(pathToOriginFile, (*it)/fromRoot / pathToOriginFile.filename(),fs::copy_options::overwrite_existing);
-		}
+	virtual void Init(PathContext& paths) override{
 		auto ch=std::move(readFileChunks(pathToOriginFile));
 		chunks.clear();
 		Index position = 0;
@@ -114,27 +113,22 @@ public:
 	//rootPath - cesta ke koreni struktury (to co bylo pridano ke kontrole)
 	unique_ptr<vector<T>> readFileChunks(path file) {
 		std::unique_ptr<std::vector<T>> r = std::make_unique<vector<T>>();
-		unix::FileStream fileReader = T::openFile(file.string());
+		unix::FileStream fileReader = T::openFile(file.str());
 		if (!fileReader.fail()) {
 			while (!fileReader.eof()) {
 				r->push_back(T::readChunk(fileReader));
 			}
 		}
-		else {
-			fileReader = T::openFile(file.string(), unix::OpenMode::Out| unix::OpenMode::Trunc);
-			Write(fileReader);
-			r = std::make_unique<std::vector<T>>(chunks);
-		}
 		fileReader.close();
 		return move(r);
 	}
-	virtual bool check_files_change(PathContext & paths,path & used_path) override {
+	virtual bool check_files_change(PathContext & paths) override {
 		unique_ptr<vector<BaseNumberType>> latest_change_definition;
 		path latest_change_file;
 		unique_ptr<vector<T>> latest_change_chunks;
 		Version continue_version=setting->GetActualVersion();
 		//kontrola v originalnim souboru
-		unique_ptr<vector<T>> chunks = move(readFileChunks(paths.pathToRoot / paths.pathFromRoot / path(file_name)));
+		unique_ptr<vector<T>> chunks = move(readFileChunks(paths.pathToCurrentModifiedFile);
 		auto change = move(this->GetReusableChunks(chunks));
 		if (is_change(change.get())) {
 			latest_change_definition = move(change);
@@ -331,12 +325,12 @@ private:
 			}
 		}
 	}
-	void load_version(ifstream &f, Version new_version) {
+	void load_version(unix::FileStream &f, Version new_version) {
 		chunks.clear();
 		std::vector<std::string> lines;
 		
-		std::string line;
-		while (std::getline(f, line))
+		std::string line=f.getline();
+		while (line != nullptr)
 		{
 			lines.push_back(line);
 		}

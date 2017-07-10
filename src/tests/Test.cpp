@@ -1,7 +1,7 @@
 #include "Test.h"
-#include "FileStructure.h"
 #ifdef TEST
-void assert_vector_array(vector<BaseNumberType> vec, BaseNumberType arr[], size_t arr_size)
+template<typename T>
+void assert_vector_array(std::vector<T> vec,T arr[], size_t arr_size)
 {
 	if (vec.size() == arr_size) {
 		for (int i = 0; i < arr_size; ++i)
@@ -14,6 +14,7 @@ void assert_vector_array(vector<BaseNumberType> vec, BaseNumberType arr[], size_
 //testovaci metoda volana z main
 
 #ifdef T1
+#include "core/fileStructure/FileStructure.h"
 void test1() {
 
 	FileStructure<std::string> fs;

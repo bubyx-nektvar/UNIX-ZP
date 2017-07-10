@@ -1,6 +1,4 @@
 #include "ServerAdress.h"
-#include "UNIXAPI.h"
-
 
 
 ServerAdress::ServerAdress(std::string adress)

@@ -1,8 +1,10 @@
 #include "FilesStructure.h"
-#include "UNIXFileSystem.h"
-#include "UNIXDirectoryInfo.h"
 #include <queue>
 
+#include "unix/io/FileSystem.h"
+#include "unix/io/DirectoryInfo.h"
+
+const std::string FilesStructure::SVNDirName = ".svn";
 
 
 unix::DirectoryInfo FilesStructure::getSvnRootDir(std::string fullPath)
@@ -18,24 +20,18 @@ unix::DirectoryInfo FilesStructure::getSvnRootDir(std::string fullPath)
 	return dir;
 }
 
-std::string FilesStructure::getSvnRelative(std::string svnRoot, std::string fullPath)
+path FilesStructure::getSvnRelative(path svnRoot, path fullPath)
 {
-	return fullPath.substr(svnRoot.size(), fullPath.size() - svnRoot.size());
+    return fullPath.removePrefix(svnRoot());
 }
 
-std::string FilesStructure::getSvnRelative(std::string svnFilePath, int * revision)
+path FilesStructure::getSvnRelative(path svnFilePath, int * revision)
 {
-	auto i = svnFilePath.find_last_of(SVNDirName);
-	if (i == -1) return std::string();
-
-	auto x = svnFilePath.substr(i, svnFilePath.size() - i);
-	i = svnFilePath.find_last_of('.');
-	if (i == -1) return std::string();
-
-	auto r = svnFilePath.substr(i + 1, svnFilePath.size() - (i + 1));
-	auto p = svnFilePath.substr(0, i);
-	*revision = std::stoi(r);
-	return p;
+    auto i = svnFilePath.indexOfPart(SVNDirName)
+	if (i == -1) return path();
+    auto svnRelative = svnFilePath.subpath(i+1);
+    *revision = std::stoi(svnFilePath.getEnding());
+    return svnRelative;
 }
 
 FileInfo FilesStructure::createFile(unix::DirectoryInfo svnDir, std::string relativePath, int revision)
@@ -52,11 +48,11 @@ FilesStructure::FilesStructure(std::string rootPath)
 	std::queue<std::string> dirQueue;
 	dirQueue.push(fp);
 	while (dirQueue.size() > 0) {
-		auto dir = std::make_unique<unix::DirectoryInfo>(new unix::DirectoryInfo(dirQueue.front()));
+		auto dir = std::make_unique<unix::DirectoryInfo>(dirQueue.front());
 		dirQueue.pop();
 
 		auto it = dir->begin();
-		for (; it != dir->end(); it++) {
+		for (; it != dir->end(); ++it) {
 			if (it->isDirectory()) {
 				dirQueue.emplace(it->GetFullPath());
 			}

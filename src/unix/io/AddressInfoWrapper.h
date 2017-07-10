@@ -2,6 +2,9 @@
 #define ADDRESS_INFO_WRAPPER_H_
 
 #include <string>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
 
 struct AdressInfoWrapper {
 public:

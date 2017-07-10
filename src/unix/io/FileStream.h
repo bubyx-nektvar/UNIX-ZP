@@ -2,8 +2,10 @@
 #define FILE_STREAM_H_
 
 #include <string>
-#include "UNIXAPI.h"
-#include "StreamWrapper.h"
+#include <sstream>
+#include <unistd.h>
+#include <fcntl.h>
+#include "unix/io/StreamWrapper.h"
 
 namespace unix {
 	enum OpenMode {
@@ -13,7 +15,8 @@ namespace unix {
 		Trunc = O_TRUNC,
 		Append = O_APPEND
 	};
-	class FileStream:StreamWrapper
+	class FileStream
+        :public StreamWrapper
 	{
 	public:
 		FileStream(int fileDescriptor)
@@ -26,6 +29,13 @@ namespace unix {
 			auto fd =open(path.c_str(), mode);
 			return FileStream(fd);
 		}
+        template<typename T>
+        FileStream& operator<<(const T& value){
+            std::stringstream ss;
+            ss<<value;
+            this->wwrite(ss.str());
+            return *this;
+        }
 
 		~FileStream();
 	};

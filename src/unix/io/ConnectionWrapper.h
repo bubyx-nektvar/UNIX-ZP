@@ -3,8 +3,8 @@
 
 #include <exception>
 
-#include "AddressInfoWrapper.h"
-#include "StreamWrapper.h"
+#include "unix/io/AddressInfoWrapper.h"
+#include "unix/io/StreamWrapper.h"
 
 class CouldNotConnectException : std::exception {
 private:
@@ -17,6 +17,10 @@ public:
 class ConnectionWrapper:StreamWrapper
 {
 public:
+    ConnectionWrapper(ConnectionWrapper& c)
+    :StreamWrapper(c.fileDesc){
+        
+    }
 	ConnectionWrapper(AdressInfoWrapper ai);
 	~ConnectionWrapper();
 	

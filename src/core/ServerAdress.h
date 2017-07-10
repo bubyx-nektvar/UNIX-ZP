@@ -2,11 +2,13 @@
 #define SERVER_ADRESS_H_
 
 #include <string>
-#include "AddressInfoWrapper.h"
-#include "Testing.h"
+#include <exception>
+
+#include "unix/io/AddressInfoWrapper.h"
+#include "tests/Testing.h"
 
 class WrongAddressException 
-	:exception {
+	:std::exception {
 public:
 	WrongAddressException(){}
 };

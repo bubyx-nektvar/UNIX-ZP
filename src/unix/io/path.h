@@ -36,20 +36,34 @@ public:
 		return operator/(path(value));
 	}
 	bool isRelative() {
-		return parts[0] == "";
+		return !isAbsolute();
 	}
 	bool isAbsolute() {
-		return !isRelative();
+		return parts[0] == "";
 	}
+    bool isRoot(){
+        return isAbsolute()&&parts.size()==1;
+    }
 	path parent() const
 	{
 		std::vector<std::string> p;
-		for(int i =0;i<parts.size()-1;++i)
+		for(uint i =0;i<parts.size()-1;++i)
 		{
 			p.push_back(parts[i]);
 		}
 		return path(p);
 	}
+    friend std::ostream& operator<<(std::ostream& fs, const path& p){
+        return fs<<p.str();
+    }
+    //vyvori z teto cesty cestu relativni k removedPart
+    path removePrefix(path& removedPart);
+    //ziska index posledni casti rovne part
+    int indexOfLastPart(std::string partText);
+    //vytvori cestu relativni k i-te casti teto cesty
+    path subpath(int i);
+    //ziska koncovku souboru
+    std::string getEnding();
 };
 
 

@@ -1,7 +1,9 @@
 #ifndef VERSION_CHANGE_H_
 #define VERSION_CHANGE_H_
+
 class VersionChange;
-#include "base.h"
+#include "core/base.h"
+
 class VersionChange
 {
 public:

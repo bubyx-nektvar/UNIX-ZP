@@ -1,6 +1,6 @@
 #include "ConnectionWrapper.h"
-#include "UNIXAPI.h"
-
+#include <sys/types.h>
+#include <sys/socket.h>
 
 ConnectionWrapper::ConnectionWrapper(AdressInfoWrapper ai)
 {

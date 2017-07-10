@@ -1,5 +1,4 @@
 #include "AddressInfoWrapper.h"
-#include "UNIXAPI.h"
 
 AdressInfoWrapper::AdressInfoWrapper(std::string adress, std::string port)
 {

@@ -1,6 +1,8 @@
 #include <sstream>
+#include <unistd.h>
+#include <fcntl.h>
 #include "StreamWrapper.h"
-#include "UNIXAPI.h"
+
 
 
 int StreamWrapper::readSysToBuff()
@@ -28,10 +30,12 @@ int StreamWrapper::buffedRead(char * buff, int startPos, size_t maxLength)
 	}
 	return i;
 }
-
+void StreamWrapper::close(){
+	close(this->fileDesc);
+}
 StreamWrapper::~StreamWrapper()
 {
-	close(this->fileDesc);
+    this->close();
 }
 
 int StreamWrapper::wread(char * buff, int startPos, size_t maxLength)
@@ -59,6 +63,7 @@ void StreamWrapper::wwrite(std::string text) const
 
 std::string StreamWrapper::getline()
 {
+    if(eof())return nullptr;
 
 	bool newLineReaded = false;
 	bool carrigeReturnReaded = false;

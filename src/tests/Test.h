@@ -3,12 +3,16 @@
 
 #define TEST
 #ifdef TEST
+#include <exception>
+#include <cstddef>
+#include <vector>
 
-#include "FileStructure.h"
-class assert_exception :public exception {
+class assert_exception :public std::exception {
 
 };
-void assert_vector_array(vector<BaseNumberType> vec, BaseNumberType arr[], size_t arr_size);
+
+template<typename T>
+void assert_vector_array(std::vector<T> vec, T arr[], size_t arr_size);
 //testovaci metoda volana z main
 
 #define T1

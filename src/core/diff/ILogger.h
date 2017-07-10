@@ -1,12 +1,12 @@
 #ifndef ILOGGER_H_
 #define ILOGGER_H_
+
 #include <vector>
-#include "path.h"
+#include "unix/io/path.h"
+
 class ILogger {
 public:
-	//file - cesta z root az k souboru (vcetne nazvu souboru)
-	virtual void Open(std::vector<path>* targets, path file) = 0;
-	virtual void Open(std::vector<path>& log_files) = 0;
+	virtual void Open(path fullPath) = 0;
 
 	//close opened fstreams
 	virtual void Close() = 0;

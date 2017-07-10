@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <string>
+#include <errno.h>
 #include  "path.h"
 
 class IOException :
@@ -12,13 +13,13 @@ private:
 	std::string filePath;
 	int errorNumober;
 public:
-	IOException(path p, int errno)
+	IOException(path p, int err)
 		:filePath(p.str())
-		, errorNumober(errno)
+		, errorNumober(err)
 	{}
-	IOException(std::string path, int errno)
+	IOException(std::string path, int err)
 		:filePath(path)
-		, errorNumober(errno)
+		, errorNumober(err)
 	{}
 	~IOException();
 	std::string Error() const
