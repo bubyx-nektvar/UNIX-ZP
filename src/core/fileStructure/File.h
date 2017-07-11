@@ -22,7 +22,6 @@ namespace myfs {
 		File(){}
 		File(const File& that) = delete;
 		File & operator=(const File&) = delete;
-		void WriteHash(std::ostream & output, path rootPath);
 		//virtual void CreateVersion(VersionChange & ver, PathContext &paths) = 0;
 		//nacte strukturu
 		//vytvori log file s pridanim chunku
@@ -31,8 +30,6 @@ namespace myfs {
 		//nascte strukturu z log fileu
         // logFile - plna cesta
 		virtual void LoadFromLog(path logFile,Version v) = 0;
-		virtual void SetHash(std::unordered_map<std::string, Hash> hashes, path fromRoot);
-		virtual void AddToTargetClearly(path toTarget, path fromRoot) ;
 		virtual std::unique_ptr<ILogger> GetLogger() = 0;
 	protected:
 		// zpracuje zmeny v souboru

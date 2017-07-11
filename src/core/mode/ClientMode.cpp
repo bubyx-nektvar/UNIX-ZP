@@ -1,6 +1,6 @@
 #include "ClientMode.h"
-#include "UNIXAPI.h"
-#include "ConnectionWrapper.h"
+#include "unix/io/ConnectionWrapper.h"
+#include "unix/io/AddressInfoWrapper.h"
 
 std::unique_ptr<ClientConnection> ClientMode::getConnection() const
 {

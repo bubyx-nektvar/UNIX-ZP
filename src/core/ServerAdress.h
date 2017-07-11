@@ -20,6 +20,8 @@ private:
 	std::string port;
 	std::string svnPath;
 public:
+    ServerAdress()
+    {}
 	ServerAdress(std::string adress);
 	~ServerAdress();
 	AdressInfoWrapper GetAddressInfo() const;

@@ -4,24 +4,25 @@
 #include <string>
 #include <memory>
 #include "Mode.h"
-#include "ServerAdress.h"
-#include "Connection.h"
+#include "core/ServerAdress.h"
+#include "core/Connection.h"
+#include "core/fileStructure/FilesStructure.h"
 
 class ClientMode :
 	public Mode
 {
 private:
 	ServerAdress serverPath;
+    FilesStructure fs;
 public:
-	void SetServerPath(std::string path) {
-		this->serverPath = ServerAdress(path);
-	}
-	ClientMode():serverpath(""){}
-	ClientMode(ServerAdress path) 
-		:serverPath(path){
-	}
+	ClientMode()
+        :serverPath(""),fs("")
+    {}
+	ClientMode(ServerAdress path,std::string rootPath) 
+        :serverPath(path),fs(rootPath)
+    {}
 	std::unique_ptr<ClientConnection> getConnection() const;
-}
+};
 
 
 #endif

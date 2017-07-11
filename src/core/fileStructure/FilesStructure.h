@@ -14,16 +14,16 @@ private:
 	std::string rootPath;
 	std::vector<std::unique_ptr<FileInfo>> files;
 
-	static unix::DirectoryInfo getSvnRootDir(std::string fullPath);
+	unix::DirectoryInfo getSvnRootDir(path fullPath);
 	//ziska relativni cestu vuci .svn z cesty .../.svn/../....
-	static std::string getSvnRelative(path svnRoot, std::string fullPath);
+	path getSvnRelative(path svnRoot, path fullPath);
 	//získa relativni cestu vuci .svn z cesty .../.svn/....
-	static std::string getSvnRelative(path svnFilePath, int* revision);
-	static FileInfo createFile(unix::DirectoryInfo svnDir, std::string relativePath, int revision);
+	path getSvnRelative(path svnFilePath, int* revision);
+	FileInfo createRevisionFile(path relativePath, int revision);
 public:
 	FilesStructure(std::string rootPath);
 	~FilesStructure();
-	static void AddFile(std::string filePath);
+	void AddFile(std::string filePath);
 };
 
 

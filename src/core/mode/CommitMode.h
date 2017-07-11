@@ -7,8 +7,9 @@ class CommitMode :
 	public ClientMode
 {
 public:
-	CommitMode(ServerAdress adress)
-		:ClientMode(adress) {}
+	CommitMode(ServerAdress adress,std::string rootPath)
+		:ClientMode(adress, rootPath)
+    {}
 	~CommitMode();
 	virtual void Run() override;
 };

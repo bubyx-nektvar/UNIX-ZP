@@ -1,7 +1,7 @@
 #include "path.h"
 #include <algorithm>
 
-path::path(std::string path) {
+path::path(const std::string path) {
 	auto it = path.begin();
 	auto sb = std::stringbuf();
 

@@ -25,8 +25,11 @@ private:
 	int port;
 	ServerAdress serverAdress;
 	bool SetMode(BuilderModeSelector mode);
+    std::string rootPath;
 public:
-	ModeBuilder();
+	ModeBuilder(std::string rootPath)
+        : rootPath(rootPath)
+    {}
 	~ModeBuilder();
 	bool AddFile(std::string file);
 	bool SetCommit() {

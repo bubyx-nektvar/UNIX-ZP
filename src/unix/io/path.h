@@ -14,7 +14,9 @@ private:
 		this->parts.push_back(x);
 	}
 public:
-	path(std::string path);
+    path()
+    {}
+	path(const std::string path);
 	path(const std::vector<std::string> parts) :parts(parts) {
 
 	}
@@ -29,12 +31,27 @@ public:
 	{
 		return str().c_str();
 	}
+    operator std::string() const{
+        return str();
+    }
 	path operator/ (path other) const{
 		return path(this,&other);
 	}
 	path operator/ (std::string value) const{
 		return operator/(path(value));
 	}
+    path operator+ (char c) const{
+        std::vector<std::string> np;
+        std::copy(parts.begin(),parts.end(),np.end());
+        np[np.size()-1] += c;
+        return path(np);
+    }
+    path operator+ (std::string s) const{
+        std::vector<std::string> np;
+        std::copy(parts.begin(),parts.end(),np.end());
+        np[np.size()-1] += s;
+        return path(np);
+    }
 	bool isRelative() {
 		return !isAbsolute();
 	}

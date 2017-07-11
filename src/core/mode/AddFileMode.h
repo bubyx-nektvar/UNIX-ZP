@@ -11,8 +11,8 @@ class AddFileMode :
 private:
 	std::string filePath;
 public:
-	AddFileMode(ServerAdress serverPath, std::string filePath) 
-		:ClientMode(serverPath) 
+	AddFileMode(ServerAdress serverPath,std::string rootPath, std::string filePath) 
+		:ClientMode(serverPath, rootPath) 
 	{
 		this->filePath = filePath;
 	}

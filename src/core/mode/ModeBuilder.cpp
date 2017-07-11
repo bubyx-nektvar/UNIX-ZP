@@ -1,5 +1,5 @@
-#include "RunParamException.h"
 #include "ModeBuilder.h"
+#include "core/RunParamException.h"
 #include "AddFileMode.h"
 #include "CommitMode.h"
 #include "CheckoutMode.h"
@@ -14,10 +14,6 @@ bool ModeBuilder::SetMode(BuilderModeSelector mode)
 		return true;
 	}
 	return false;
-}
-
-ModeBuilder::ModeBuilder()
-{
 }
 
 
@@ -43,19 +39,20 @@ std::unique_ptr<Mode> ModeBuilder::Build()
 	switch (this->mode)
 	{
 		case BuilderModeSelector::AddFile:
-			result = std::make_unique<Mode>(new AddFileMode(this->serverAdress,this->file));
+			//result = std::make_unique<Mode>(new AddFileMode(this->serverAdress,this->file));
+			result = std::make_unique<AddFileMode>(this->serverAdress, this->rootPath, this->file);
 			break;
 		case BuilderModeSelector::Checkout:
-			result = std::make_unique<Mode>(new CheckoutMode(this->serverAdress));
+			result = std::make_unique<CheckoutMode>(this->serverAdress, this->rootPath);
 			break;
 		case BuilderModeSelector::Commit:
-			result = std::make_unique<Mode>(new CommitMode(this->serverAdress));
+			result = std::make_unique<CommitMode>(this->serverAdress, this->rootPath);
 			break;
 		case BuilderModeSelector::Server:
-			result = std::make_unique<Mode>(new ServerMode(this->port));
+			result = std::make_unique<ServerMode>(this->port);
 			break;
 		case BuilderModeSelector::Update:
-			result = std::make_unique<Mode>(new UpdateMode(this->serverAdress));
+			result = std::make_unique<UpdateMode>(this->serverAdress, this->rootPath);
 			break;
 		default:
 			throw new RunParamException();

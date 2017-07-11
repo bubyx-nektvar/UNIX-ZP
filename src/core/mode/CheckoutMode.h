@@ -2,14 +2,14 @@
 #define CHECKOUT_MODE_H_
 
 #include "ClientMode.h"
-#include "ServerAdress.h"
+#include "core/ServerAdress.h"
 
 class CheckoutMode:
 	public ClientMode
 {
 public:
-	CheckoutMode(ServerAdress adress)
-		:ClientMode(adress) {}
+	CheckoutMode(ServerAdress adress,std::string rootPath)
+		:ClientMode(adress, rootPath) {}
 	~CheckoutMode();
 	virtual void Run() override;
 };

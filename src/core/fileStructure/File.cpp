@@ -15,14 +15,6 @@ void myfs::File::RewriteAll(const PathContext& paths)
     RewriteCurrentFile(paths);
 }
 
-void myfs::File::AddToTargetClearly(path toTarget,path fromRoot)
-{
-	WriteChunks(toTarget / fromRoot / path(file_name));
-	std::vector<path> * tgs = new std::vector<path>();
-	tgs->push_back(toTarget);
-	this->log_init(tgs,fromRoot);
-}
-
 bool myfs::File::is_change(vector<BaseNumberType>* change_description)
 {
 	BaseNumberType i = 0;

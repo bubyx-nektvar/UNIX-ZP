@@ -19,7 +19,8 @@ private :
 public:
 	
 	void Open(path fullPath) override{
-        logFile = unix::FileStream::OpenFileStream(fullPath.str(),unix::OpenMode::Out|unix::OpenMode::Append);
+        unix::OpenMode x = unix::OpenMode::Out|unix::OpenMode::Append;
+        logFile = unix::FileStream::OpenFileStream(fullPath.str(),x);
 	}
 	void Close() override{
         logFile.close();

@@ -8,6 +8,7 @@ namespace unix {
 	public:
 		static const char PathDelimetr = '/';
 		static std::string PathConcat(std::string part1, std::string part2);
+        static std::string getCurrentDirPath();
 	};
 }
 #endif // !UNIX_FILE_SYSTEM_H_

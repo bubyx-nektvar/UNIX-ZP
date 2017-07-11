@@ -12,7 +12,7 @@ private:
 	int lastUpdateRevision = -1;
 	path pathWithRev();
 public:
-	FileInfo(std::string pathFromRoot, int revision)
+	FileInfo(path pathFromRoot, int revision)
         :pathFromRoot(pathFromRoot),lastUpdateRevision(revision)
     { }
 	void CreateSvn(path svnDirPath);

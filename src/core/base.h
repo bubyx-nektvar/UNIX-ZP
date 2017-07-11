@@ -7,7 +7,7 @@
 typedef long BaseNumberType;//must be signed
 typedef long Index;//must be signed
 typedef unsigned long Index_u;
-typedef unsigned long Version;//cislo oznacujici verzi
+typedef long Version;//cislo oznacujici verzi
 typedef std::string Hash;
 
 template<typename T>

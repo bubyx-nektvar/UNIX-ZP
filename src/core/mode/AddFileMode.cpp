@@ -1,9 +1,9 @@
 #include "AddFileMode.h"
-#include "FilesStructure.h"
+#include "core/fileStructure/FilesStructure.h"
 
 void AddFileMode::Run()
 {
-	FilesStructure::AddFile(filePath);
+	fs.AddFile(filePath);
 }
 
 AddFileMode::~AddFileMode()

@@ -3,6 +3,7 @@
 #include <thread>
 #include <memory>
 #include <string>
+#include "unix/io/FileSystem.h"
 #include "unix/io/FileStream.h"
 #include "Messages.h"
 #include "base.h"
@@ -15,7 +16,7 @@ void ThrowIfFail(bool result) {
 }
 
 std::unique_ptr<Mode> processArgs(int argc, char * argv[]) {
-	ModeBuilder mode;
+	ModeBuilder mode(unix::FileSystem::getCurrentDirPath());
 	int opt;
 	while (opt = getopt(argc, argv, "a:cus:") != -1) {
 		switch (opt) {

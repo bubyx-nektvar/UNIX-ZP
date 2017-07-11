@@ -17,7 +17,7 @@ public:
 class ConnectionWrapper:StreamWrapper
 {
 public:
-    ConnectionWrapper(ConnectionWrapper& c)
+    ConnectionWrapper(const ConnectionWrapper& c)
     :StreamWrapper(c.fileDesc){
         
     }

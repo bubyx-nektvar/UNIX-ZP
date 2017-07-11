@@ -74,27 +74,6 @@ public:
 		recalculate_map();
 		std::cout << "...Loaded" << std::endl;
 	}
-	//pathToRoot - cesta ke koreni
-	//pathFromRoot - cesta strukturou
-	//load_version - zda se ma verze nacist ; true-ma se nacist false-ma se pouze zapisovat log
-	virtual void CreateVersion(VersionChange & ver,PathContext &paths) override {
-		ChangeLogger<T> logger;
-		logger.Open(paths.targetDirs, paths.pathFromRoot / path(file_name));
-		logger.LogVersion(ver.continue_version,ver.new_version);
-		logger.Close();
-		if(paths.targetDirs->begin()!=paths.targetDirs->end())recompute_hash(*paths.targetDirs->begin(), paths.pathFromRoot);
-
-		if (ver.ShouldReload()) {
-			if (paths.targetDirs->begin() != paths.targetDirs->end()) {
-				path log_file_p = (*paths.targetDirs->begin()) / path(".bbdata") / paths.pathFromRoot / path(file_name);
-				path file_p = (*paths.targetDirs->begin()) / paths.pathFromRoot / path(file_name);
-				std::ifstream log_file (log_file_p.string());
-				load_version(log_file, ver.new_version);
-				Rewrite(path(), paths, true);
-			}
-		}
-
-	}
 	virtual void Init(PathContext& paths) override{
 		auto ch=std::move(readFileChunks(pathToOriginFile));
 		chunks.clear();

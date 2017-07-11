@@ -7,8 +7,9 @@ class UpdateMode :
 	public ClientMode
 {
 public:
-	UpdateMode(ServerAdress adress)
-		:ClientMode(adress){}
+	UpdateMode(ServerAdress adress,std::string rootPath)
+		:ClientMode(adress, rootPath)
+    {}
 	~UpdateMode();
 	virtual void Run() override;
 };
